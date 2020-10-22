@@ -4,7 +4,12 @@
   font-weight: 800;
   src: url('https://fonts.google.com/specimen/Montserrat'); 
 }
+
 body {
   text-align: center;
   font-family: 'Montserrat', 'Helvetica';
+}
+
+.NavBigMac {
+  margin: -5px 0px 0px 10px;
 }

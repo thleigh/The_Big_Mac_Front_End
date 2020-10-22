@@ -1,11 +1,13 @@
 import React from 'react';
+import bigmac from '../assets/big-mac.png'
 import { NavLink, Link } from 'react-router-dom';
 
 const NavBar = (props) => {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-white">
             <div className="container">
-                <Link className="navbar-brand" to="/#Welcome" >Affirmations
+                <Link className="navbar-brand" to="/Welcome" >The Big Mac Project
+                    <img className="NavBigMac" src={bigmac} alt="The Big Mac" width="50" height="50"></img>
                 </Link>
                 
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="#navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,10 +19,13 @@ const NavBar = (props) => {
                         {
                             <>
                                 <li className="nav-item">
-                                    <NavLink className="nav-link text-info" to="/profile">Profile</NavLink>
+                                    <NavLink className="nav-link text-info" to="/about">About</NavLink>
                                 </li>
                                 <li className="nav-item">
-                                    <NavLink to="/" onClick={props.handleLogout} className="nav-link text-info">Logout</NavLink>
+                                    <NavLink className="nav-link text-info" to="/Data">Data</NavLink>
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink className="nav-link text-info" to="/Contact">Contact Us</NavLink>
                                 </li>
                             </>
                         }
