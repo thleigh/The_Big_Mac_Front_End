@@ -1,15 +1,21 @@
 import React from 'react';
+import Welcome from './components/Welcome'
+import About from './components/About'
+import Contact from './components/Contact'
+import Data from './components/Data'
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <div className="container">
-        <h1>The Big Mac Project</h1>
-        <p>The Big Mac Project compares the price of the Bic Mac Meal in every Major City in America.</p>
-
-        <p>Why is this important?</p>
-      </div>
+    <div>
+      <NavBar />
+        <Switch>
+          <Route path="/" componenet={Welcome} />
+          <Route path="/about" componenet={About} />
+          <Route path="/contact" componenet={Contact} />
+          <Route path="/data" componenet={Data} />
+          
+        </Switch>
     </div>
   );
 }
