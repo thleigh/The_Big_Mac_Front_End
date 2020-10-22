@@ -3,19 +3,22 @@ import Welcome from './components/Welcome'
 import About from './components/About'
 import Contact from './components/Contact'
 import Data from './components/Data'
+import NavBar from './components/NavBar'
+import { Switch, Route } from 'react-router-dom';
+
 import './App.css';
 
 function App() {
   return (
     <div>
       <NavBar />
-        <Switch>
-          <Route path="/" componenet={Welcome} />
-          <Route path="/about" componenet={About} />
-          <Route path="/contact" componenet={Contact} />
-          <Route path="/data" componenet={Data} />
+      <div>
+        <Route path="/" component={Welcome} />
+        <Route path="/about" component={About} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/data" component={Data} />
           
-        </Switch>
+      </div>
     </div>
   );
 }
