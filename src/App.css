@@ -1,8 +1,10 @@
-body {
-  background-color: red;
-  text-align: center;
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 800;
+  src: url('https://fonts.google.com/specimen/Montserrat'); 
 }
-
-.container {
-  background-color: yellow;
+body {
+  text-align: center;
+  font-family: 'Montserrat', 'Helvetica';
 }
