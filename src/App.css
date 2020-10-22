@@ -13,3 +13,9 @@ body {
 .NavBigMac {
   margin: -5px 0px 0px 10px;
 }
+
+.aboutContainer {
+  width: 700px;
+  text-align: center;
+  margin: 100px auto;
+}

@@ -4,7 +4,21 @@ const About = (props) => {
 
     return(
         <div>
-            <p>About</p>
+            <div className="aboutContainer">
+                <h3>About</h3>
+
+                <p>While exploring the deep debths of the interweb, I found out that Big Mac's cost different
+                    in my city than it does in another.
+                    <br/>
+                    A Big Mac Meal can cost $8.99 in Los Angeles, but $10.99 in San Fransisco.
+                    <br/>
+                    This brought me to the conclusion that with the data of every Big Mac price in the country,
+                    I could figure out a lot more about price dispersion in each city. 
+                </p>
+
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                <p>The Big Mac Project was created by Tanner Leigh on October 2020</p>
+            </div>
         </div>
     )
 }
