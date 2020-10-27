@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react"
 import axios from 'axios'
 const BIG_MAC_SERVER_URL = process.env.BIG_MAC_SERVER_URL;
+console.log(BIG_MAC_SERVER_URL)
 
 const Data = (props) => {
     let [location, setLocation] = useState([]);
