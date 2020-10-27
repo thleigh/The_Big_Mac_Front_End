@@ -1,6 +1,6 @@
 import React from 'react';
 import bigmac from '../assets/big-mac.png'
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const NavBar = (props) => {
     return (

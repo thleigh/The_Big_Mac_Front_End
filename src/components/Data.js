@@ -1,14 +1,14 @@
 import React, {useState, useEffect} from "react"
 import axios from 'axios'
-const BIG_MAC_SERVER_URL = process.env.BIG_MAC_SERVER_URL;
-console.log(BIG_MAC_SERVER_URL)
+const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 const Data = (props) => {
     let [location, setLocation] = useState([]);
-    let [price, setPrice] = useState([]);
+    // let [price, setPrice] = useState([]);
+    console.log(REACT_APP_SERVER_URL)
 
     useEffect(() => {
-        axios.get(`${BIG_MAC_SERVER_URL}/api/bigmacs/`)
+        axios.get(`${REACT_APP_SERVER_URL}/api/bigmacs/`)
         .then(response => {
             setLocation(response.data[0])
         })
