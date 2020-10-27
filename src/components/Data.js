@@ -10,7 +10,7 @@ const Data = (props) => {
     useEffect(() => {
         axios.get(`${REACT_APP_SERVER_URL}/api/bigmacs/`)
         .then(response => {
-            setLocation(response.data[0])
+            setLocation(response.data)
         })
         .catch(err => console.log(err))
     }, [])
@@ -18,7 +18,7 @@ const Data = (props) => {
     return(
         <div>
             <p>Data</p>
-            <p>Location: {location}</p>
+    <p>Location: {location.map(test => <div>{test.location}</div>)}</p>
         </div>
     )
 }
