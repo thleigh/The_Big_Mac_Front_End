@@ -19,3 +19,9 @@ body {
   text-align: center;
   margin: 100px auto;
 }
+
+.bigMacPrices {
+  margin-top: 700px;
+  padding: 50px;
+  background-color: aliceblue;
+}

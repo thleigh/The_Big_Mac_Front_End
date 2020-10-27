@@ -17,15 +17,18 @@ const Data = (props) => {
 
     return(
         <div>
-            <h3>Data</h3>
-            <p>{location.map((bigmac, index) => (
+            <div className="bigMacPrices">
+
+                <h3>Data</h3>
+                <div>{location.map((bigmac, index) => (
                     <p>
-                       Location: {bigmac.location}
-                        <br></br>
-                       Price: {bigmac.price}
+                        Location: {bigmac.location}
+                            <br></br>
+                        Price: {bigmac.price}
                     </p>
                 ))}
-            </p>
+                </div>
+            </div>
         </div>
     )
 }
