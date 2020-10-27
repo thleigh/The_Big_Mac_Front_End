@@ -18,7 +18,14 @@ const Data = (props) => {
     return(
         <div>
             <p>Data</p>
-    <p>Location: {location.map(test => <div>{test.location}</div>)}</p>
+            <p>{location.map((bigmac, index) => (
+                    <p>
+                       Location: {bigmac.location}
+                        <br></br>
+                       Price: {bigmac.price}
+                    </p>
+                ))}
+            </p>
         </div>
     )
 }
