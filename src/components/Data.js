@@ -17,7 +17,7 @@ const Data = (props) => {
 
     return(
         <div>
-            <p>Data</p>
+            <h3>Data</h3>
             <p>{location.map((bigmac, index) => (
                     <p>
                        Location: {bigmac.location}
