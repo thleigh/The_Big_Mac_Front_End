@@ -15,6 +15,15 @@ const Data = (props) => {
         .catch(err => console.log(err))
     }, [])
 
+    // TO DO:
+    // Graph for most expensive city
+        // Find highest price
+    // Graph for most least expensive city
+        // Find lowest price
+    // Create a temperature map for most expensive areas
+        // Allow users to hover to show the data for that area. 
+        // Give each area a name so that it can be connected.
+
     return(
         <div>
             <div className="bigMacPrices">
