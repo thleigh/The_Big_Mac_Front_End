@@ -17,6 +17,13 @@ const Data = (props) => {
         .catch(err => console.log(err))
     }, [])
 
+    let handleMost = (id,e) => {
+        axios.get(`${REACT_APP_SERVER_URL}/api/bigmacs/most`)
+        .then(response => {
+            setLocation(response.data)
+        })
+        .catch(err => console.log(err))
+    }
     // TO DO:
     // Graph for most expensive city
         // Find highest price
@@ -37,11 +44,11 @@ const Data = (props) => {
                             <>
                                 Sort By:
                                 <li className="nav-item dataNavbar">
-                                    <Link className="nav-link text-info" to="/about"> Most Expensive </Link>
+                                    <button className="nav-link text-info dataBtn" onClick={(e) => handleMost(e)}> Most Expensive </button>
                                 </li>
-                                
+
                                 <li className="nav-item dataNavbar">
-                                    <Link className="nav-link text-info" to="/about"> Least Expensive </Link>
+                                    <button className="nav-link text-info dataBtn" onClick={(e) => handleMost(e)}> Least Expensive </button>
                                 </li>
                             </>
                         }   

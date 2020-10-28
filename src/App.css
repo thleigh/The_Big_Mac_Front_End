@@ -30,3 +30,9 @@ body {
   display: inline-block;
   margin: 5px;
 }
+
+.dataBtn {
+  padding: 0;
+  border: none;
+  background: none;
+}
