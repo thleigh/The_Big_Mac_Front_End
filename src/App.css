@@ -25,3 +25,8 @@ body {
   padding: 50px;
   background-color: aliceblue;
 }
+
+.dataNavbar {
+  display: inline-block;
+  margin: 5px;
+}

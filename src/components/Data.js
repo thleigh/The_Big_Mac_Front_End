@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from "react"
 import axios from 'axios'
+import { Link } from 'react-router-dom';
+
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 const Data = (props) => {
@@ -29,6 +31,22 @@ const Data = (props) => {
             <div className="bigMacPrices">
 
                 <h3>Data</h3>
+                <div id="navbarsExample07">
+                    <ul className="navbar-nav ml-auto dataNavbar" >
+                        {
+                            <>
+                                Sort By:
+                                <li className="nav-item dataNavbar">
+                                    <Link className="nav-link text-info" to="/about"> Most Expensive </Link>
+                                </li>
+                                
+                                <li className="nav-item dataNavbar">
+                                    <Link className="nav-link text-info" to="/about"> Least Expensive </Link>
+                                </li>
+                            </>
+                        }   
+                    </ul>
+                </div>
                 <div>{location.map((bigmac, index) => (
                     <p>
                         Location: {bigmac.location}
