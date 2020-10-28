@@ -24,6 +24,13 @@ const Data = (props) => {
         })
         .catch(err => console.log(err))
     }
+    let handleLeast = (id,e) => {
+        axios.get(`${REACT_APP_SERVER_URL}/api/bigmacs/least`)
+        .then(response => {
+            setLocation(response.data)
+        })
+        .catch(err => console.log(err))
+    }
     // TO DO:
     // Graph for most expensive city
         // Find highest price
@@ -48,7 +55,7 @@ const Data = (props) => {
                                 </li>
 
                                 <li className="nav-item dataNavbar">
-                                    <button className="nav-link text-info dataBtn" onClick={(e) => handleMost(e)}> Least Expensive </button>
+                                    <button className="nav-link text-info dataBtn" onClick={(e) => handleLeast(e)}> Least Expensive </button>
                                 </li>
                             </>
                         }   
