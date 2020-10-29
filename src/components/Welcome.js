@@ -6,7 +6,7 @@ const Welcome = (props) => {
 
     return(
         <div>
-            <img src={bigmac}></img>
+            <img src={bigmac} alt="big mac boi"></img>
             <h3>Welcome to The Big Mac Project</h3>
             <p>The Big Mac Project compares every Big Mac meal price in every major city across the US.</p>
             <Link to="/data">

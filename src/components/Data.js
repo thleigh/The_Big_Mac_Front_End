@@ -76,11 +76,11 @@ const Data = (props) => {
                     </thead>
                     <tbody>
                     {location.map((bigmac, index) => (
-                        <tr>
+                        <tr key={index}>
                             <td>#</td>
-                            <td>City: {bigmac.location.split(',')[0]}</td>
-                            <td>State: {bigmac.location.split(',')[1]}</td>
-                            <td>Price: ${bigmac.price}</td>
+                            <td> {bigmac.location.split(',')[0]} </td>
+                            <td> {bigmac.location.split(',')[1]} </td>
+                            <td> ${bigmac.price} </td>
                         </tr>
                     ))}
                     </tbody>
