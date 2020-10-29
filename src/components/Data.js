@@ -1,33 +1,46 @@
 import React, {useState, useEffect} from "react"
 import axios from 'axios'
-import {Table} from 'react-bootstrap'
+import {Table, Form, Button} from 'react-bootstrap'
 
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 const Data = (props) => {
-    let [location, setLocation] = useState([]);
+    let [main, setMain] = useState([]);
+    let [search, setSearch] = useState('');
     // let [price, setPrice] = useState([]);
-    console.log(REACT_APP_SERVER_URL)
 
     useEffect(() => {
         axios.get(`${REACT_APP_SERVER_URL}/api/bigmacs/`)
         .then(response => {
-            setLocation(response.data)
+            setMain(response.data)
         })
         .catch(err => console.log(err))
     }, [])
 
-    let handleMost = (id,e) => {
+    let handleMost = () => {
         axios.get(`${REACT_APP_SERVER_URL}/api/bigmacs/most`)
         .then(response => {
-            setLocation(response.data)
+            setMain(response.data)
         })
         .catch(err => console.log(err))
     }
-    let handleLeast = (id,e) => {
+    let handleLeast = () => {
         axios.get(`${REACT_APP_SERVER_URL}/api/bigmacs/least`)
         .then(response => {
-            setLocation(response.data)
+            setMain(response.data)
+        })
+        .catch(err => console.log(err))
+    }
+
+    let handleSearch = (e) => {
+        setSearch(e.target.value)
+    }
+
+    let handleMain = (e) => {
+        e.preventDefault()
+        axios.get(`${REACT_APP_SERVER_URL}/api/bigmacs/search`, {search})
+        .then(response => {
+            setMain(response.data)
         })
         .catch(err => console.log(err))
     }
@@ -60,7 +73,10 @@ const Data = (props) => {
                                 </li>
                                 <br></br>
                                 <p className="dataNavbar">Search:</p>
-                                <input className="dataNavbar"></input>
+                                <Form onSubmit={(e) => handleMain(e)}>
+                                    <input className="dataNavbar" name="search" type="text" value={search} onInput={handleSearch}/>
+                                    <Button className="btn-info" type="submit">SEARCH</Button>
+                                </Form>    
                             </>
                         }   
                     </ul>
@@ -75,7 +91,7 @@ const Data = (props) => {
                         </tr>
                     </thead>
                     <tbody>
-                    {location.map((bigmac, index) => (
+                    {main.map((bigmac, index) => (
                         <tr key={index}>
                             <td>#</td>
                             <td> {bigmac.location.split(',')[0]} </td>
