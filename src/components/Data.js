@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react"
 import axios from 'axios'
-import { Link } from 'react-router-dom';
+import {Table} from 'react-bootstrap'
 
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
@@ -31,6 +31,7 @@ const Data = (props) => {
         })
         .catch(err => console.log(err))
     }
+
     // TO DO:
     // Graph for most expensive city
         // Find highest price
@@ -62,13 +63,44 @@ const Data = (props) => {
                     </ul>
                 </div>
                 <div>{location.map((bigmac, index) => (
-                    <p>
-                        Location: {bigmac.location}
+                    <p className="dataBox">
+                        City: {bigmac.location.split(',')[0]}
                             <br></br>
-                        Price: {bigmac.price}
+                        State: {bigmac.location.split(',')[1]}
+                            <br></br>
+                        Price: ${bigmac.price}
                     </p>
                 ))}
                 </div>
+                <Table striped bordered hover variant="dark">
+                    <thead>
+                        <tr>
+                        <th>#</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Big Mac Meal Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td>1</td>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        </tr>
+                        <tr>
+                        <td>2</td>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                        </tr>
+                        <tr>
+                        <td>3</td>
+                        <td colSpan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                        </tr>
+                    </tbody>
+                </Table>
             </div>
         </div>
     )

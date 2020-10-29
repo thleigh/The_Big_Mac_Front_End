@@ -36,3 +36,9 @@ body {
   border: none;
   background: none;
 }
+
+.dataBox {
+  text-align: left;
+  width: 300px;
+  margin: 0 auto;
+}
