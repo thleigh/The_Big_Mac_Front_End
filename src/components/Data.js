@@ -50,7 +50,7 @@ const Data = (props) => {
                     <ul className="navbar-nav ml-auto dataNavbar" >
                         {
                             <>
-                                Sort By:
+                                <p className="dataNavbar">Sort By:</p>
                                 <li className="nav-item dataNavbar">
                                     <button className="nav-link text-info dataBtn" onClick={(e) => handleMost(e)}> Most Expensive </button>
                                 </li>
@@ -58,6 +58,9 @@ const Data = (props) => {
                                 <li className="nav-item dataNavbar">
                                     <button className="nav-link text-info dataBtn" onClick={(e) => handleLeast(e)}> Least Expensive </button>
                                 </li>
+                                <br></br>
+                                <p className="dataNavbar">Search:</p>
+                                <input className="dataNavbar"></input>
                             </>
                         }   
                     </ul>
