@@ -6,7 +6,7 @@ const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 const Data = (props) => {
     let [main, setMain] = useState([]);
-    let [search, setSearch] = useState('');
+    let [location, setLocation] = useState('');
     // let [price, setPrice] = useState([]);
 
     useEffect(() => {
@@ -32,13 +32,13 @@ const Data = (props) => {
         .catch(err => console.log(err))
     }
 
-    let handleSearch = (e) => {
-        setSearch(e.target.value)
+    let handleLocation = (e) => {
+        setLocation(e.target.value)
     }
 
     let handleMain = (e) => {
         e.preventDefault()
-        axios.get(`${REACT_APP_SERVER_URL}/api/bigmacs/search`, {search})
+        axios.get(`${REACT_APP_SERVER_URL}/api/bigmacs/${location}`)
         .then(response => {
             setMain(response.data)
         })
@@ -74,7 +74,7 @@ const Data = (props) => {
                                 <br></br>
                                 <p className="dataNavbar">Search:</p>
                                 <Form onSubmit={(e) => handleMain(e)}>
-                                    <input className="dataNavbar" name="search" type="text" value={search} onInput={handleSearch}/>
+                                    <input className="dataNavbar" name="location" type="text" value={location} onInput={handleLocation}/>
                                     <Button className="btn-info" type="submit">SEARCH</Button>
                                 </Form>    
                             </>
