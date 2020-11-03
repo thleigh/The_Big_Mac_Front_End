@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import USAMap from 'react-usa-map';
 import {Button, Modal} from 'react-bootstrap'
 import '../App.css';
 
 const Map = (props) => {
-    const [modalState, setModalState] = React.useState(false);
+    let [modalState, setModalState] = React.useState(false);
+    let [state, setState] = useState([])
 
     let mapHandler = (e) => {
-        alert(e.target.dataset.name);
+        setState(e.target.dataset.name);
+        setModalState(true)
     };
 
     function StateModal(props) {
@@ -20,12 +22,12 @@ const Map = (props) => {
           >
             <Modal.Header closeButton>
               <Modal.Title id="contained-modal-title-vcenter">
-                State Name
+               { state }
               </Modal.Title>
             </Modal.Header>
             <Modal.Body>
             <p className="aboutParagraph">
-                This will have data for selected state
+                { state } data.
             </p>
             </Modal.Body>
             <Modal.Footer>
@@ -37,9 +39,9 @@ const Map = (props) => {
 
     return (
         <div>
-            <USAMap onClick = { (e) =>  mapHandler(e) } />
+            <USAMap onClick={(e) => mapHandler(e)}/>
             <Button className="buttonModal btn-info" variant="primary" onClick={() => setModalState(true)}>
-                Tanner Leigh
+                Button
             </Button>
 
             <StateModal
