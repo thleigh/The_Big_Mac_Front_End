@@ -21,10 +21,15 @@ body {
 }
 
 .bigMacPrices {
-  margin-top: 700px;
+  margin-top: 50px;
   padding: 50px;
   background-color: aliceblue;
 }
+
+.mapContainer {
+  margin-top: 50px;
+}
+
 
 .dataNavbar {
   display: inline-block;

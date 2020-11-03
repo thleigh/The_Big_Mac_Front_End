@@ -1,6 +1,7 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import {Table, Form, Button} from 'react-bootstrap'
+import Map from './Map.js'
 
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
@@ -56,6 +57,9 @@ const Data = (props) => {
 
     return(
         <div>
+            <div className="mapContainer">
+                <Map/>
+            </div>
             <div className="bigMacPrices">
 
                 <h3>Data</h3>
