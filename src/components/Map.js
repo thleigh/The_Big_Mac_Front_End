@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import USAMap from 'react-usa-map';
+import '../App.css';
 
 const Map = (props) => {
     let mapHandler = (e) => {

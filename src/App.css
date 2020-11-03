@@ -26,6 +26,15 @@ body {
   background-color: aliceblue;
 }
 
+path {
+  pointer-events: all;
+}
+
+path:hover {
+  opacity: 0.50;
+  cursor: pointer;
+}
+
 .mapContainer {
   margin-top: 50px;
 }
