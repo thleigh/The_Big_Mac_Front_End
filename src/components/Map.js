@@ -2,14 +2,29 @@ import React, { useState } from 'react';
 import USAMap from 'react-usa-map';
 import {Button, Modal} from 'react-bootstrap'
 import '../App.css';
+import axios from 'axios';
+
+const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 const Map = (props) => {
     let [modalState, setModalState] = React.useState(false);
     let [state, setState] = useState([])
+    let [stateData, setStateData] = useState('');
+    let [location, setLocation] = useState('');
+
+    // let handleStateDate = (e) => {
+    //     e.preventDefault()
+    //     axios.get(`${REACT_APP_SERVER_URL}/api/bigmacs/${location}`)
+    //     .then(response => {
+    //         setStateData(response.data)
+    //     })
+    //     .catch(err => console.log(err))    
+    // }
 
     let mapHandler = (e) => {
         setState(e.target.dataset.name);
-        setModalState(true)
+        setModalState(true);
+        // handleStateDate(e.target.dataset);
     };
 
     function StateModal(props) {
@@ -40,14 +55,12 @@ const Map = (props) => {
     return (
         <div>
             <USAMap onClick={(e) => mapHandler(e)}/>
-            <Button className="buttonModal btn-info" variant="primary" onClick={() => setModalState(true)}>
-                Button
-            </Button>
 
             <StateModal
                 show={modalState}
                 onHide={() => setModalState(false)}
             />
+
         </div>
     );
 }

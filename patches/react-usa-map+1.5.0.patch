@@ -1,0 +1,22 @@
+diff --git a/node_modules/react-usa-map/src/index.js b/node_modules/react-usa-map/src/index.js
+index 05a7582..d936cf6 100644
+--- a/node_modules/react-usa-map/src/index.js
++++ b/node_modules/react-usa-map/src/index.js
+@@ -28,7 +28,7 @@ class USAMap extends React.Component {
+     let paths = [];
+     let dataStates = data();
+     for (let stateKey in dataStates) {
+-      const path = <USAState key={stateKey} stateName={dataStates[stateKey].name} dimensions={dataStates[stateKey]["dimensions"]} state={stateKey} fill={this.fillStateColor(stateKey)} onClickState={this.stateClickHandler(stateKey)} />
++      const path = <USAState key={stateName} stateName={dataStates[stateKey].name} dimensions={dataStates[stateKey]["dimensions"]} state={dataStates[stateKey].name} fill={this.fillStateColor(stateKey)} onClickState={this.stateClickHandler(dataStates[stateKey].name)} />
+       paths.push(path);
+     };
+     return paths;
+@@ -64,7 +64,7 @@ USAMap.defaultProps = {
+   width: 959,
+   height: 593,
+   defaultFill: "#D3D3D3",
+-  title: "Blank US states map",
++  title: "US states map",
+   customize: {}
+ };
+ 

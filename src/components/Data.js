@@ -25,6 +25,7 @@ const Data = (props) => {
         })
         .catch(err => console.log(err))
     }
+    
     let handleLeast = () => {
         axios.get(`${REACT_APP_SERVER_URL}/api/bigmacs/least`)
         .then(response => {
