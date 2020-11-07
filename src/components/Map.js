@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import USAMap from './react-usa-map/src/index';
-import {Button, Modal} from 'react-bootstrap'
+import { Button, Modal, Table } from 'react-bootstrap'
 import '../App.css';
 import axios from 'axios';
 
@@ -9,22 +9,21 @@ const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 const Map = (props) => {
     let [modalState, setModalState] = React.useState(false);
     let [state, setState] = useState([])
-    let [stateData, setStateData] = useState('');
-    let [location, setLocation] = useState('');
+    let [main, setMain] = useState([]);
 
-    // let handleStateDate = (e) => {
-    //     e.preventDefault()
-    //     axios.get(`${REACT_APP_SERVER_URL}/api/bigmacs/${location}`)
-    //     .then(response => {
-    //         setStateData(response.data)
-    //     })
-    //     .catch(err => console.log(err))    
-    // }
+    let handleStateData = (e) => {
+        axios.get(`${REACT_APP_SERVER_URL}/api/bigmacs/${e}`)
+        .then(response => {
+            setMain(response.data)
+        })
+        .catch(err => console.log(err))    
+    }
 
     let mapHandler = (e) => {
+      e.preventDefault()
         setState(e.target.dataset.name);
         setModalState(true);
-        // handleStateDate(e.target.dataset);
+        handleStateData(e.target.dataset.name);
     };
 
     function StateModal(props) {
@@ -42,7 +41,26 @@ const Map = (props) => {
             </Modal.Header>
             <Modal.Body>
             <p className="aboutParagraph">
-                { state } data.
+              <Table striped bordered hover>
+                      <thead>
+                          <tr>
+                          <th>#</th>
+                          <th>City</th>
+                          <th>State</th>
+                          <th>Big Mac Meal Price</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                      {main.map((bigmac, index) => (
+                          <tr key={index}>
+                              <td>#</td>
+                              <td> {bigmac.location.split(',')[0]} </td>
+                              <td> {bigmac.location.split(',')[1]} </td>
+                              <td> ${bigmac.price} </td>
+                          </tr>
+                      ))}
+                      </tbody>
+                  </Table>
             </p>
             </Modal.Body>
             <Modal.Footer>
