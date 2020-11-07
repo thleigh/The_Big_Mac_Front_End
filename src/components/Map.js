@@ -33,7 +33,6 @@ const Map = (props) => {
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
             centered
-            className="scrolling"
           >
             <Modal.Header closeButton>
               <Modal.Title id="contained-modal-title-vcenter">
@@ -73,6 +72,9 @@ const Map = (props) => {
 
     return (
         <div>
+            <h5>
+              Click on any state to see it's Data.
+            </h5>
             <USAMap onClick={(e) => mapHandler(e)}/>
 
             <StateModal

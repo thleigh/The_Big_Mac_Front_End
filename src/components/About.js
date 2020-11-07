@@ -7,9 +7,7 @@ const About = (props) => {
             <div className="aboutContainer">
                 <h3>About</h3>
 
-                <p>While exploring the deep debths of the interweb, I found out that Big Mac's cost different
-                    in my city than it does in another.
-                    <br/>
+                <p>
                     A Big Mac Meal can cost $8.99 in Los Angeles, but $10.99 in San Fransisco.
                     <br/>
                     This brought me to the conclusion that with the data of every Big Mac price in the country,

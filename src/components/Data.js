@@ -54,7 +54,7 @@ const Data = (props) => {
             </div>
             <div className="bigMacPrices">
 
-                <h3> All Data </h3>
+                <h3> All Big Mac Price Data </h3>
                 <div id="navbarsExample07">
                     <ul className="navbar-nav ml-auto dataNavbar" >
                         {
