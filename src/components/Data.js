@@ -8,7 +8,7 @@ const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 const Data = (props) => {
     let [main, setMain] = useState([]);
     let [location, setLocation] = useState('');
-    // let [price, setPrice] = useState([]);
+    let [sort, setSort] = React.useState(false);
 
     useEffect(() => {
         axios.get(`${REACT_APP_SERVER_URL}/api/bigmacs/`)
@@ -18,21 +18,21 @@ const Data = (props) => {
         .catch(err => console.log(err))
     }, [])
 
-    let handleMost = () => {
-        axios.get(`${REACT_APP_SERVER_URL}/api/bigmacs/most`)
-        .then(response => {
-            setMain(response.data)
-        })
-        .catch(err => console.log(err))
-    }
-    
-    let handleLeast = () => {
+    useEffect(() => {
+        sort ? 
         axios.get(`${REACT_APP_SERVER_URL}/api/bigmacs/least`)
         .then(response => {
             setMain(response.data)
         })
         .catch(err => console.log(err))
-    }
+
+        :
+        axios.get(`${REACT_APP_SERVER_URL}/api/bigmacs/most`)
+        .then(response => {
+            setMain(response.data)
+        })
+        .catch(err => console.log(err))
+    }, [sort])
 
     let handleLocation = (e) => {
         setLocation(e.target.value)
@@ -47,15 +47,6 @@ const Data = (props) => {
         .catch(err => console.log(err))
     }
 
-    // TO DO:
-    // Graph for most expensive city
-        // Find highest price
-    // Graph for most least expensive city
-        // Find lowest price
-    // Create a temperature map for most expensive areas
-        // Allow users to hover to show the data for that area. 
-        // Give each area a name so that it can be connected.
-
     return(
         <div>
             <div className="mapContainer">
@@ -63,25 +54,17 @@ const Data = (props) => {
             </div>
             <div className="bigMacPrices">
 
-                <h3>Data</h3>
+                <h3> All Data </h3>
                 <div id="navbarsExample07">
                     <ul className="navbar-nav ml-auto dataNavbar" >
                         {
                             <>
-                                <p className="dataNavbar">Sort By:</p>
-                                <li className="nav-item dataNavbar">
-                                    <button className="nav-link text-info dataBtn" onClick={(e) => handleMost(e)}> Most Expensive </button>
-                                </li>
-
-                                <li className="nav-item dataNavbar">
-                                    <button className="nav-link text-info dataBtn" onClick={(e) => handleLeast(e)}> Least Expensive </button>
-                                </li>
-                                <br></br>
-                                <p className="dataNavbar">Search:</p>
+                                {/* <label for="location">Search:</label> */}
                                 <Form onSubmit={(e) => handleMain(e)}>
-                                    <input className="dataNavbar" name="location" type="text" value={location} onInput={handleLocation}/>
+                                    <input className="dataNavbar" name="location" type="text" value={location} onInput={handleLocation} placeholder="ex: Santa Monica"/>
                                     <Button className="btn-info" type="submit">SEARCH</Button>
                                 </Form>    
+                                <br></br>
                             </>
                         }   
                     </ul>
@@ -92,7 +75,13 @@ const Data = (props) => {
                         <th>#</th>
                         <th>City</th>
                         <th>State</th>
-                        <th>Big Mac Meal Price</th>
+                        <th> 
+                            <a 
+                                onClick={() => setSort(!sort)}
+                            >
+                            Big Mac Meal Price ↕ 
+                            </a>
+                        </th>
                         </tr>
                     </thead>
                     <tbody>
