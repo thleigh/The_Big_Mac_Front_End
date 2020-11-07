@@ -11,6 +11,7 @@
     "chart.js": "^2.9.4",
     "dotenv": "^8.2.0",
     "events": "^3.2.0",
+    "patch-package": "^6.2.2",
     "react": "^16.14.0",
     "react-bootstrap": "^1.4.0",
     "react-chartjs-2": "^2.10.0",
@@ -23,7 +24,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postinstall": "patch-package"
   },
   "eslintConfig": {
     "extends": "react-app"
