@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import USAMap from 'react-usa-map';
+import USAMap from './react-usa-map/src/index';
 import {Button, Modal} from 'react-bootstrap'
 import '../App.css';
 import axios from 'axios';

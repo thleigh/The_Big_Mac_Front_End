@@ -1,21 +1,38 @@
 diff --git a/node_modules/react-usa-map/src/index.js b/node_modules/react-usa-map/src/index.js
-index 05a7582..d936cf6 100644
+index 05a7582..9e1c079 100644
 --- a/node_modules/react-usa-map/src/index.js
 +++ b/node_modules/react-usa-map/src/index.js
-@@ -28,7 +28,7 @@ class USAMap extends React.Component {
+@@ -13,7 +13,6 @@ class USAMap extends React.Component {
+     if (this.props.customize && this.props.customize[state] && this.props.customize[state].fill) {
+       return this.props.customize[state].fill;
+     }
+-
+     return this.props.defaultFill;
+   };
+ 
+@@ -22,13 +21,13 @@ class USAMap extends React.Component {
+       return this.props.customize[state].clickHandler
+     }
+     return this.clickHandler;
+-  }
++  };
+ 
+   buildPaths = () => {
      let paths = [];
      let dataStates = data();
      for (let stateKey in dataStates) {
 -      const path = <USAState key={stateKey} stateName={dataStates[stateKey].name} dimensions={dataStates[stateKey]["dimensions"]} state={stateKey} fill={this.fillStateColor(stateKey)} onClickState={this.stateClickHandler(stateKey)} />
-+      const path = <USAState key={stateName} stateName={dataStates[stateKey].name} dimensions={dataStates[stateKey]["dimensions"]} state={dataStates[stateKey].name} fill={this.fillStateColor(stateKey)} onClickState={this.stateClickHandler(dataStates[stateKey].name)} />
++      const path = <USAState key={stateName} stateName={dataStates[stateKey].name} dimensions={dataStates[stateKey]["dimensions"]} state={stateName} fill={this.fillStateColor(stateName)} onClickState={this.stateClickHandler(stateName)} />
        paths.push(path);
      };
      return paths;
-@@ -64,7 +64,7 @@ USAMap.defaultProps = {
+@@ -63,8 +62,8 @@ USAMap.defaultProps = {
+   onClick: () => {},
    width: 959,
    height: 593,
-   defaultFill: "#D3D3D3",
+-  defaultFill: "#D3D3D3",
 -  title: "Blank US states map",
++  defaultFill: "#ff0000",
 +  title: "US states map",
    customize: {}
  };
