@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import USAMap from './react-usa-map/src/index';
 import { Button, Modal, Table } from 'react-bootstrap'
 import '../App.css';
@@ -12,18 +12,18 @@ const Map = (props) => {
     let [main, setMain] = useState([]);
 
     let handleStateData = (e) => {
-        axios.get(`${REACT_APP_SERVER_URL}/api/bigmacs/${e}`)
-        .then(response => {
-            setMain(response.data)
-        })
-        .catch(err => console.log(err))    
+      axios.get(`${REACT_APP_SERVER_URL}/api/bigmacs/${e}`)
+      .then(response => {
+        setMain(response.data)
+        setModalState(true);  
+      })
+      .catch(err => console.log(err))
+
     }
 
     let mapHandler = (e) => {
-      e.preventDefault()
-        setState(e.target.dataset.name);
-        setModalState(true);
-        handleStateData(e.target.dataset.name);
+      setState(e.target.dataset.name);
+      handleStateData(e.target.dataset.name);
     };
 
     function StateModal(props) {
@@ -33,6 +33,7 @@ const Map = (props) => {
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
             centered
+            className="scrolling"
           >
             <Modal.Header closeButton>
               <Modal.Title id="contained-modal-title-vcenter">
