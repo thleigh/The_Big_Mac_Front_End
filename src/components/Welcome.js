@@ -8,7 +8,8 @@ const Welcome = (props) => {
         <div>
             <img src={bigmac} alt="big mac boi"></img>
             <h3>Welcome to The Big Mac Project</h3>
-            <p>The Big Mac Project compares every Big Mac meal price in every major city across the US.</p>
+            <p>The Big Mac Project compares the price of every Big Mac meal in major cities across the US.</p>
+            <p>How much does your local Big Mac meal cost?</p>
             <Link to="/data">
                 <button className='btn btn-info'> Get Started </button>
             </Link>

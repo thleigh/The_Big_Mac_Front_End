@@ -1,4 +1,5 @@
 diff --git a/node_modules/react-usa-map/src/index.js b/node_modules/react-usa-map/src/index.js
+<<<<<<< HEAD
 index 05a7582..57a203d 100644
 --- a/node_modules/react-usa-map/src/index.js
 +++ b/node_modules/react-usa-map/src/index.js
@@ -11,19 +12,50 @@ index 05a7582..57a203d 100644
  
    fillStateColor = (state) => {
 @@ -28,7 +29,7 @@ class USAMap extends React.Component {
+=======
+index 05a7582..9e1c079 100644
+--- a/node_modules/react-usa-map/src/index.js
++++ b/node_modules/react-usa-map/src/index.js
+@@ -13,7 +13,6 @@ class USAMap extends React.Component {
+     if (this.props.customize && this.props.customize[state] && this.props.customize[state].fill) {
+       return this.props.customize[state].fill;
+     }
+-
+     return this.props.defaultFill;
+   };
+ 
+@@ -22,13 +21,13 @@ class USAMap extends React.Component {
+       return this.props.customize[state].clickHandler
+     }
+     return this.clickHandler;
+-  }
++  };
+ 
+   buildPaths = () => {
+>>>>>>> 4f1dd0d1ef81927d509ea1a576ece8f26d64c490
      let paths = [];
      let dataStates = data();
      for (let stateKey in dataStates) {
 -      const path = <USAState key={stateKey} stateName={dataStates[stateKey].name} dimensions={dataStates[stateKey]["dimensions"]} state={stateKey} fill={this.fillStateColor(stateKey)} onClickState={this.stateClickHandler(stateKey)} />
+<<<<<<< HEAD
 +      const path = <USAState key={stateName} stateName={dataStates[stateKey].name} dimensions={dataStates[stateKey]["dimensions"]} state={stateName} fill={this.fillStateColor(stateKey)} onClickState={this.stateClickHandler(stateName)} />
        paths.push(path);
      };
      return paths;
 @@ -64,7 +65,7 @@ USAMap.defaultProps = {
+=======
++      const path = <USAState key={stateName} stateName={dataStates[stateKey].name} dimensions={dataStates[stateKey]["dimensions"]} state={stateName} fill={this.fillStateColor(stateName)} onClickState={this.stateClickHandler(stateName)} />
+       paths.push(path);
+     };
+     return paths;
+@@ -63,8 +62,8 @@ USAMap.defaultProps = {
+   onClick: () => {},
+>>>>>>> 4f1dd0d1ef81927d509ea1a576ece8f26d64c490
    width: 959,
    height: 593,
-   defaultFill: "#D3D3D3",
+-  defaultFill: "#D3D3D3",
 -  title: "Blank US states map",
++  defaultFill: "#ff0000",
 +  title: "US states map",
    customize: {}
  };

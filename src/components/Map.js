@@ -12,9 +12,19 @@ const Map = (props) => {
     let [stateData, setStateData] = useState('');
     let [location, setLocation] = useState('');
 
+    // let handleStateDate = (e) => {
+    //     e.preventDefault()
+    //     axios.get(`${REACT_APP_SERVER_URL}/api/bigmacs/${location}`)
+    //     .then(response => {
+    //         setStateData(response.data)
+    //     })
+    //     .catch(err => console.log(err))    
+    // }
+
     let mapHandler = (e) => {
         setState(e.target.dataset.name);
         setModalState(true);
+        // handleStateDate(e.target.dataset);
     };
 
     let statesCustomConfig = () => {
